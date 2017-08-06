@@ -6,7 +6,13 @@
 
 {{ .Content }}
 
-Recent posts: <br />
+{{if not .IsHome }}
+Recent {{.Title}} : <br />
+{{ end }}
+
+{{if .IsHome }}
+Recent Posts : <br />
+{{ end }}
 
 <ul>
   {{ range first 5 (where .Data.Pages "Section" "!=" "") }}
