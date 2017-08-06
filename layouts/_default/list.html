@@ -7,7 +7,6 @@
 {{ .Content }}
 
 {{if not .IsHome }}
-Recent {{.Title}} : <br />
 <ul>
   {{ range (where .Data.Pages "Section" "!=" "") }}
   <li>
