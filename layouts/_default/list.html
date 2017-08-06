@@ -6,8 +6,10 @@
 
 {{ .Content }}
 
+Recent posts: <br />
+
 <ul>
-  {{ range (where .Data.Pages "Section" "!=" "") }}
+  {{ range first 5 (where .Data.Pages "Section" "!=" "") }}
   <li>
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
     <a href="{{ .URL }}">{{ .Title }}</a>
