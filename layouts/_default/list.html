@@ -8,12 +8,18 @@
 
 {{if not .IsHome }}
 Recent {{.Title}} : <br />
+<ul>
+  {{ range (where .Data.Pages "Section" "!=" "") }}
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .URL }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
 {{ end }}
 
 {{if .IsHome }}
 Recent Posts : <br />
-{{ end }}
-
 <ul>
   {{ range first 5 (where .Data.Pages "Section" "!=" "") }}
   <li>
@@ -22,5 +28,7 @@ Recent Posts : <br />
   </li>
   {{ end }}
 </ul>
+{{ end }}
+
 
 {{ partial "footer.html" . }}
